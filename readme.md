@@ -2,7 +2,7 @@ LG Display 파주 임직원간 택시 합승 승차를 위한 웹사이트
 ===
 
 - URL: http://sharetaxis.pythonanywhere.com/
-- On operatin: 201709 - 201711
+- Operation period: 201709 - 201711
 - Feedback
 
   1. 사용자와 상호작용하는 제품을 만든 것은 잘한 일이다.
