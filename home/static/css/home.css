@@ -1,0 +1,167 @@
+nav {
+    background-color: #3f51b5;
+}
+
+@media screen and (min-width:600px) {
+  nav {
+    padding-left: 15px;
+  }
+  nav .brand-logo {
+      font-size: 24px;
+  }
+  .head-message{
+    font-size: 32px;
+    color: black;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width:599px) {
+  nav .brand-logo {
+      font-size: 16px;
+  }
+  .head-message{
+    font-size: 24px;
+    color: black;
+    text-align: center;
+  }
+}
+
+.carousel .carousel-item>img{
+  width: 100%;
+}
+
+
+.row{
+    margin: 20px 20px 20px 20px;
+}
+
+.core-message{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.login-after{
+  margin-top: 30px;
+}
+
+.end-message{
+    font-size: 14px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* INTRODUCE */
+
+.impotant-guide, .schedule-content{
+  font-weight: bold;
+}
+
+.introduce-all{
+  font-size: 16px;
+}
+
+.question-first, .question-all{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* SIGNUP & LOGIN */
+
+.signup, .login, .idea, .introduce{
+  margin-top: 30px;
+}
+
+.signup-alarm, .login-alarm, .idea-alarm{
+  margin-bottom: 20px;
+}
+
+.login-warning{
+  color: red;
+}
+
+/* SCHEDULE */
+.guide-first{
+  font-size: 18px;
+}
+
+.schedule-first{
+  margin-top: 75px;
+}
+
+.first-content{
+  color: #26a69a;
+}
+
+.schedule-rule{
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.schedule-bus {
+  margin-left: 10px;
+}
+
+.schedule-content{
+  color: red;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.schedule-time{
+  margin-top: 60px;
+}
+
+.subway-time{
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.schedule-last{
+  margin-bottom: 60px;
+}
+
+.schedule-display {
+  display: none;
+}
+
+.schedule-empty{
+  color: #8bc34a;
+}
+
+.schedule-possible{
+  color: blue;
+}
+
+.schedule-impossible{
+  color: red;
+}
+
+/* idea */
+textarea{
+  height: 200px;
+}
+
+.idea-title{
+  font-size: 16px;
+}
+
+.indent{
+  margin-left: 10px;
+}
+
+.idea-list{
+  color: #607d8b;
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
+}
+
+.comment-time{
+  font-size: 12px;
+}

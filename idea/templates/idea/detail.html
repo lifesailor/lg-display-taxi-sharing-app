@@ -1,0 +1,36 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col m12 s12">
+    <h5>제목: {{ idea.title }}</h5><br/>
+    {% if idea.author == request.user %}
+      <a href="{% url 'idea_edit' pk=idea.pk %}">수정하기</a>&nbsp;
+      <a href="{% url 'idea_delete' pk=idea.pk %}">삭제하기</a><br/><br/>
+    {% endif %}
+
+    <p>{{ idea.text|linebreaksbr }}</p>
+  </div>
+</div><br/>
+
+<hr>
+
+<div class="row">
+  <div class="col m12 s12">
+    <h5>댓글 리스트</h5><br/>
+    {% for comment in idea.comments.all %}
+        <div class="comment">
+            <strong>작성자: {{ comment.author }}</strong><br/>
+                    <div class="comment-time">시간: {{ comment.created_date }}</div>
+            <p>{{ comment.text|linebreaks }}</p>
+        </div>
+    {% empty %}
+        <p>아직 코멘트가 없습니다.</p>
+    {% endfor %}
+    
+    {% if user.pk == 1 or idea.author == request.user %}
+      <a href="{% url 'add_comment_to_idea' pk=idea.pk %}">댓글 작성하기</a>
+    {% endif %}
+  </div>  
+</div>
+{% endblock %}

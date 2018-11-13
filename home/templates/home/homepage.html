@@ -1,0 +1,53 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+<div class="row"></div>
+<div class="row">
+  <div class="head-message col s12 m12">
+    <h4 class="head-message">
+      우리 택시 좀 같이 타자!
+    </h4>
+  </div>
+</div>
+
+<div class="row">
+</div>
+
+<div class="carousel carousel-slider">
+    <a class="carousel-item" href="#one!"><img src="static/image/home/before.PNG"></a>
+    <a class="carousel-item" href="#two!"><img src="static/image/home/after.PNG"></a></div>
+
+{% if user.is_authenticated %}
+  <div class="row">
+    <div class="core-message col s12 m12">
+      지금 바로 택시를 탈 시간을 선택해주세요.<br/>
+      <div class="way-message">(지금은 BETA 버전으로 월롱역 출발, 기숙사 도착만 운행합니다)</div>
+    </div>
+  </div>
+  
+  <div class="row center-align">
+    <a class="waves-effect waves-light indigo btn" href="{% url 'schedule:schedule_list' %}">택시 합승하기</a>
+  </div>
+{% else %}
+
+  <div class="row">
+    <div class="core-message col s12 m12">
+      지금 바로 LG Display 구성원 인증을 하고<br/> 택시 합승을 시작하세요.
+    </div>
+  </div>
+  
+  <div class="row center-align">
+    <a class="waves-effect waves-light indigo btn" href="{% url 'signup' %}">구성원 인증하기</a>
+  </div>
+  <p class="center-align"><a href="{% url 'introduce' %}">ShareTaxis 소개</a></p>
+  <p class="center-align"><a href="{% url 'login' %}">인증한 적 있다면, 로그인</a></p>
+{% endif %}
+<script>
+    $('.carousel.carousel-slider').carousel({
+        fullWidth: true,
+    });
+    setInterval(function() {
+        $('.carousel').carousel('next');
+    }, 3000);
+</script>
+{% endblock %}

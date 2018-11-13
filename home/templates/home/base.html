@@ -1,0 +1,77 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <title>ShareTaxis</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106971393-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+      gtag('config', 'UA-106971393-1');
+    </script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+          <a href="/" class="brand-logo">LG Display 택시 쉐어링</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'homepage' %}">홈</a></li>
+              <li><a href="{% url 'introduce' %}">서비스 소개</a></li>
+              <li><a href="{% url 'idea_list' %}">문의 사항</a></li>
+              <li><a href="{% url 'schedule:schedule_list' %}">택시 합승하기</a></li>
+              <li><a href="{% url 'logout' %}">로그아웃</a></li>
+            {% else %}
+              <li><a href="{% url 'homepage' %}">홈</a></li>
+              <li><a href="{% url 'introduce' %}">서비스 소개</a></li>
+              <li><a href="{% url 'signup' %}">구성원 인증하기</a></li>
+              <li><a href="{% url 'login' %}">로그인</a></li>
+            {% endif %}
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'homepage' %}">홈</a></li>
+              <li><a href="{% url 'introduce' %}">서비스 소개</a></li>
+              <li><a href="{% url 'idea_list' %}">문의 사항</a></li>
+              <li><a href="{% url 'schedule:schedule_list' %}">택시 합승하기</a></li>
+              <li><a href="{% url 'logout' %}">로그아웃</a></li>
+            {% else %}
+              <li><a href="{% url 'homepage' %}">홈</a></li>
+              <li><a href="{% url 'introduce' %}">서비스 소개</a></li>
+              <li><a href="{% url 'signup' %}">구성원 인증하기</a></li>
+              <li><a href="{% url 'login' %}">로그인</a></li>
+            {% endif %}
+          </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      {% block content %}
+      
+      {% endblock %}
+    </div>
+    <div class="row center-align">
+      <div class="end-message"><p>ShareTaxis는 LG Display 및 협력사 임직원의 <br/>택시 합승 서비스입니다.</p></div>
+    </div>
+    <script>
+      $(".button-collapse").sideNav();
+    </script>
+  </body>
+</html>

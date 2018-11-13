@@ -1,0 +1,27 @@
+{% extends "home/base.html" %}
+{% block content %}
+<div class="row"></div>
+<div class="row">
+  <h4 class="indent">공지사항</h4>
+  {% for notice in notices %}
+    <div class="col m12 s12">
+      <p class="idea-title"><a href="{% url 'idea_detail' pk=notice.pk %}" style="color: #3f51b5"><i class="material-icons small guide-again" style="color: red">priority_high</i>{{ notice.title }}</a></p>
+    </div>
+  {% endfor %}
+</div><hr/>
+
+<div class="row"></div>
+<div class="row">
+  <h4 class="indent">후기 및 문의 사항</h4>
+  {% if user.is_authenticated %}
+    <p class="indent"><a href="{% url 'idea_new' %}">작성하기</a></p>
+  {% endif %}
+  {% for idea in ideas %}
+    <div class="col m12 s12">
+      <p class="idea-title"><a href="{% url 'idea_detail' pk=idea.pk %}"style="color: #3f51b5">{{ forloop.counter }}. {{idea.title}} <!--(댓글: {{idea.comments.count}}) --></a></p>
+    </div>
+  {% endfor %}
+</div><br><hr/>
+
+<div class="row"></div>
+{% endblock %}

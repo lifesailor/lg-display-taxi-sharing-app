@@ -1,0 +1,13 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+  <h4 class="idea">Let's Talk</h4>
+  <p class="idea-alarm">하고 싶은 말이 있으시면 남겨주세요. 검토를 통해 반영하겠습니다.</p>
+
+  <form method="POST" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
+      <div class="row center-align">
+        <button type="submit" class="waves-effect waves-light indigo btn">작성하기</button>
+      </div>
+  </form>
+{% endblock %}

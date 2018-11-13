@@ -1,0 +1,12 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+  <h4 class="idea">새 댓글 작성하기</h4>
+  <p class="idea-alarm"><{{ idea.title }}> 글에 대한 댓글을 남겨주세요.</p>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <div class="row center-align">
+            <button type="submit" class="waves-effect waves-light indigo btn">작성하기</button>
+        </div>
+    </form>
+{% endblock %}
